@@ -27,9 +27,9 @@ const STARTING_NUM_PARTICLES: usize = 10_000;
 const BACKGROUND_COLOUR: &str = "#000";
 const FOREGROUND_COLOUR: &str = "#1ce";
 const DEFAULT_FUNCTION: &str = "(
-200*abs(cos(r/25))
+100*abs(sin(r/t))*sin(t)
 ,
-200*sin(r/25)
+100*sin(r/t)*cos(t)
 )";
 struct Config {
     width: usize,
