@@ -1,5 +1,6 @@
 #[derive(Clone, Copy)]
 pub struct Particle {
+    pub color: (u8, u8, u8),
     pub pos: (f64, f64),
     pub velocity: (f64, f64),
     pub space: ((i32, i32), (i32, i32)),
@@ -14,6 +15,7 @@ impl Particle {
         let x = rand::random_range(range.0..range.1) as f64;
         let lifetime = rand::random_range(0..lifetime * 2);
         Self {
+            color: (255, 255, 255),
             pos: (x, y),
             velocity: (0.0, 0.0),
             space,
