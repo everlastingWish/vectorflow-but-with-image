@@ -1,11 +1,35 @@
-# [Vectorflow](https://nyberg.dev/vectorflow/)
+# [Vectorflow but with image](https://google.com)
 
-Vectorflow is a tool designed for visualizing vector fields using a 2D field equation. It represents the velocity of each point in the field with a particle that traces a path. This project and guide draw inspiration from Anvaka's [Fieldplay](https://github.com/anvaka/fieldplay) repository. The entire project is written in Rust and compiled to Web Assembly. Try it out on [nyberg.dev/vectorflow/](https://nyberg.dev/vectorflow/)
+Vectorflow but with image is a tool designed for visualizing vector fields using a 2D field equation. It represents the velocity of each point in the field with a particle that traces a path. This project is an extended fork of the original Vectorflow, introducing new UI controls and algorithmic optimizations. The original Vectorflow project and guide draw inspiration from Anvaka's [Fieldplay](https://github.com/anvaka/fieldplay) repository. The entire project is written in Rust and compiled to Web Assembly. Try it out on [google.com](https://google.com)
 
 [![field](https://github.com/anvaka/fieldplay/wiki/images/field_1.png)](https://anvaka.github.io/fieldplay/?dt=0.007&fo=0.998&dp=0.009&cm=1&cx=-1.275949999999999&cy=-1.6277&w=30.2937&h=30.2937&code=v.x%20%3D%20length%28p%29*min%28sin%28p.y%29%2Ccos%28p.x%29%29%3B%0Av.y%20%3D%20cos%28%28p.y%2Bp.y%29%29%3B%0A%20%20)
 [![field 2](https://github.com/anvaka/fieldplay/wiki/images/field_2.png)](https://anvaka.github.io/fieldplay/?dt=0.007&fo=0.998&dp=0.009&cm=1&cx=-1.275949999999999&cy=-1.62765&w=30.2937&h=30.2937&code=v.x%20%3D%20cos%28p.y%29%3B%0Av.y%20%3D%20cos%28p.x%29%3B%0A%20%20)
 [![field 3](https://github.com/anvaka/fieldplay/wiki/images/field_3.png)](https://anvaka.github.io/fieldplay/?dt=0.02&fo=0.998&dp=0.009&cm=1&cx=0.21419999999999995&cy=-0.7710999999999997&w=55.970200000000006&h=55.970200000000006&code=v.x%20%3D%20min%28sin%28exp%28p.x%29%29%2Csin%28length%28p%29%29%29%3B%0Av.y%20%3D%20sin%28p.x%29%3B%0A%20%20)
 [![field 4](https://github.com/anvaka/fieldplay/wiki/images/field_4.png)](https://anvaka.github.io/fieldplay/?dt=0.02&fo=0.998&dp=0.009&cm=1&cx=2.43185&cy=-1.1695&w=11.4385&h=11.4385&code=v.x%20%3D%20%28p.y%2Bcos%28p.y%29%29%3B%0Av.y%20%3D%20sin%28min%28length%28p%29%2Clog%28%28p.y%2Bp.x%29%29*p.x%29%29%3B%0A%20%20)
+
+## New Features & Controls
+
+This fork expands upon the original repository with several additions and enhancements to improve user control and performance:
+
+* **Max Particles Input:** A control allowing users to manually set the maximum number of rendered particles.
+
+
+* **Image Color Mapping:** Users can upload an image that acts as a color lookup table, dynamically determining the color of each particle as it moves across the canvas.
+
+
+* **Remove Image Button:** A quick toggle to remove the uploaded image and revert to the default styling.
+
+
+* **Video Recording:** Built-in functionality to record the canvas animation and save it as a video.
+
+
+* **GPU Mode Toggle (Bug Fix):** A checkbox that toggles a GPU rendering mode (utilizing `willReadFrequently`), implemented as an attempt to fix a bug in some browsers where colors fail to converge to black.
+
+
+* **UI Visibility Toggle:** A button to cleanly hide and show the user interface for an unobstructed view of the animation.
+
+
+* **Algorithmic Optimizations:** The preexisting rendering algorithms have been modified and optimized for better performance.
 
 
 ## What?
