@@ -785,8 +785,14 @@ impl AnimationCanvas {
         // 60.0 not 60...
         let stream = canvas.capture_stream_with_frame_request_rate(60.0).unwrap();
 
-        // ini the native MediaRecorder
-        let recorder = web_sys::MediaRecorder::new_with_media_stream(&stream).unwrap();
+        let options = web_sys::MediaRecorderOptions::new();
+        options.set_video_bits_per_second(5_000_000); 
+        
+        // note: check browser support for vp9
+        options.set_mime_type("video/webm; codecs=vp9");
+
+        let recorder = web_sys::MediaRecorder::new_with_media_stream_and_media_recorder_options(
+            &stream, &options).unwrap();
         
         // JS array to hold the video chunks
         let chunks = js_sys::Array::new();
